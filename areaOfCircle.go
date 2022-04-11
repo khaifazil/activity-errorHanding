@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"math"
 )
 
 func calCircleArea(radius float64) (float64, error) {
@@ -11,16 +12,16 @@ func calCircleArea(radius float64) (float64, error) {
 		return 0, errors.New("Radius must be positive")
 	}
 
-	const pi float64 = 3.14159
-	area := pi * radius * radius
+	area := math.Pi * radius * radius
 	return area, nil
 }
 
 func main() {
 
-	if result, err := calCircleArea(-5); err != nil {
+	radius := 20.0
+	if result, err := calCircleArea(radius); err != nil {
 		fmt.Printf("Error: %v\n", err)
 	} else {
-	fmt.Printf("Area of circle is: %v\n", result)
+		fmt.Printf("Area of circle is: %v\n", result)
 	}
 }
